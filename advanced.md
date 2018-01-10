@@ -187,10 +187,10 @@ With great power comes great responsibility. Looks like `crapHash` won't be repl
 
 ```python
 def hash1(obj):
-    return 'hash1:'+str(obj)
+    return 'hash1:'+'-'.join([str(e) for e in obj])
 
 def hash2(obj):
-    return 'hash2:'+str(obj)
+    return 'hash2:'+'.'.join([str(e) for e in obj])
 
 
 class SomeClass(Flywrench):
@@ -211,16 +211,19 @@ temp = [SomeClass(1),
         OtherClass((4, 5, 6)),
         OtherClass([2, 3]),
         OtherClass((7, 8))]
+
+pprint(SomeClass.cache.d)
+pprint(OtherClass.cache.d)
 ```
 
 ```
-{'hash1:(4, 5, 6)': (4, 5, 6),
- 'hash1:(7, 8)': (7, 8),
- 'hash1:1': 1,
- 'hash1:[2, 3]': [2, 3]}
- 
-{'hash2:(4, 5, 6)': (4, 5, 6),
- 'hash2:(7, 8)': (7, 8),
- 'hash2:1': 1,
- 'hash2:[2, 3]': [2, 3]}
+{'hash1:1': [1],
+ 'hash1:2-3': [2, 3],
+ 'hash1:4-5-6': (4, 5, 6),
+ 'hash1:7-8': (7, 8)}
+
+{'hash2:1': [1],
+ 'hash2:2.3': [2, 3],
+ 'hash2:4.5.6': (4, 5, 6),
+ 'hash2:7.8': (7, 8)}
 ```
