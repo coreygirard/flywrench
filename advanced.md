@@ -1,7 +1,7 @@
 
-## Advanced
+# Advanced
 
-### Separate caches per class
+## Separate caches per class
 
 The setup described in *getting started* uses a single cache for all classes. It may be useful at times to have a separate cache for each class definition, perhaps to minimize hash collisions, etc. Doing this is also pretty simple.
 
@@ -85,13 +85,13 @@ class Pear(Flywrench): # cache isn't shared with any other classes
 It's important to note that during typical operation, it's not a problem to have multiple classes sharing the same cache, as there is (ideally) a one-to-one relationship between hashes and stored objects. This feature is likely one of those "when you need it, you'll *know*" things.
 
 
-### Blacklists
+## Blacklists
 
 Maybe there are instance variables that you don't ever want to be cached. Perhaps they're frequently accessed or modified, and you want the best performance possible. Perhaps you know they'll be tiny variables, and you'd rather store a million integers than a million hashes. Whatever the reason, **flywrench** offers an easy way to 'blacklist' instance variables such that they are stored in the object itself, and never cached.
 
 ```python
 class SomeClass(Flywrench):
-    cache = Cache(blacklist=['test'])
+    cache = Cache(blacklist=['test', 'other'])
     def __init__(self,i):
         self.test = i
 ```
@@ -123,8 +123,9 @@ print(SomeClass.cache.d)
 {'785ee38e51369f64df4f68af923b3456': 5}
 ```
 
+Just don't change the blacklist after defining the class. It'll cause ~~a hideous and catastrophic mess~~ unexpected behavior. Plus errors. Lots of errors.
 
-### Custom hash functions
+## Custom hash functions
 
 What if you don't like the `pickle.dumps`/`hashlib.md5` tag-team that **flywrench** currently rolls with for hashing of arbitrary objects? Can you roll your own? You bet!
 

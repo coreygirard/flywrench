@@ -2,7 +2,7 @@
 
 An ultralight drop-in module implementing the [flyweight](https://en.wikipedia.org/wiki/Flyweight_pattern) [design](https://refactoring.guru/design-patterns/flyweight) [pattern](http://w3sdesign.com/?gr=s06&ugr=proble#gf)
 
-### Getting started
+## Getting started
 
 - Step 1: install **flywrench**
 
