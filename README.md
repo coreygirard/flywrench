@@ -1,8 +1,6 @@
 # flywrench
 
-A
-
-[flyweight]() [design](https://refactoring.guru/design-patterns/flyweight) [pattern]()
+An ultralight drop-in module implementing the [flyweight](https://en.wikipedia.org/wiki/Flyweight_pattern) [design](https://refactoring.guru/design-patterns/flyweight) [pattern](http://w3sdesign.com/?gr=s06&ugr=proble#gf)
 
 ### Getting started
 
@@ -44,7 +42,7 @@ class SomeClass(Flywrench):
 
 ## To Do
 
-- [ ] Implement ability to specify a blacklist of attributes to not cache
+- [ ] Move 
 - [ ] Perhaps garbage collection. Keep track of how many links there are to a given object in cache, and when the number of links hits zero, delete it
 
 

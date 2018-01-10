@@ -60,7 +60,7 @@ pprint(OtherClass.cache.d)
 {'785ee38e51369f64df4f68af923b3456': 5}
 ```
 
-It is also possible to have multiple class share the same cache, while others are distinct:
+It is also possible to have multiple classes share the same cache, while others are distinct:
 
 ```python
 class Apple(Flywrench): # cache is shared with Banana class instances
@@ -82,7 +82,7 @@ class Pear(Flywrench): # cache isn't shared with any other classes
         self.test = i
 ```
 
-It's important to note that during typical operation, it's not a problem to have multiple classes sharing the same cache, as there is (ideally) a one-to-one relationship between hashes and stored objects. This is likely one of those "when you need it, you'll KNOW" kind of things.
+It's important to note that during typical operation, it's not a problem to have multiple classes sharing the same cache, as there is (ideally) a one-to-one relationship between hashes and stored objects. This feature is likely one of those "when you need it, you'll *know*" things.
 
 
 ### Blacklists
@@ -177,8 +177,8 @@ print(d.test)
 ```
 
 ```
-(7, 8)
-(7, 8)
+(7, 8) # should be [2, 3]
+(7, 8) # should be (7, 8)
 ```
 
 With great power comes great responsibility. Looks like `crapHash` won't be replacing `pickle.dumps`/`hashlib.md5` any time soon. But now you know how to define your own custom hash function. It's also possible to define different hash functions for different classes:
@@ -203,13 +203,13 @@ class OtherClass(Flywrench):
         self.test = i
 
 temp = [SomeClass(1),
-        SomeClass((4,5,6)),
-        SomeClass([2,3]),
-        SomeClass((7,8)),
+        SomeClass((4, 5, 6)),
+        SomeClass([2, 3]),
+        SomeClass((7, 8)),
         OtherClass(1),
-        OtherClass((4,5,6)),
-        OtherClass([2,3]),
-        OtherClass((7,8))]
+        OtherClass((4, 5, 6)),
+        OtherClass([2, 3]),
+        OtherClass((7, 8))]
 ```
 
 ```
@@ -222,5 +222,4 @@ temp = [SomeClass(1),
  'hash2:(7, 8)': (7, 8),
  'hash2:1': 1,
  'hash2:[2, 3]': [2, 3]}
- ```
-
+```
