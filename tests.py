@@ -2,17 +2,57 @@ import unittest
 import doctest
 import flywrench
 
+from hypothesis import given
+from hypothesis.strategies import integers, floats, one_of, text, lists
+
+
+class TestHashing(unittest.TestCase):
+    @given(floats())
+    def test_hashing_floats(self, e):
+        h = flywrench.Cache().make_hash(e)
+        self.assertIsInstance(h, str)
+        self.assertTrue(len(h) == 32)
+
+    @given(integers())
+    def test_hashing_integers(self, e):
+        h = flywrench.Cache().make_hash(e)
+        self.assertIsInstance(h, str)
+        self.assertTrue(len(h) == 32)
+
+    @given(text())
+    def test_hashing_text(self, e):
+        h = flywrench.Cache().make_hash(e)
+        self.assertIsInstance(h, str)
+        self.assertTrue(len(h) == 32)
+
+    @given(lists(one_of(floats(),
+                        integers(),
+                        text())))
+    def test_hashing_lists(self, e):
+        h = flywrench.Cache().make_hash(e)
+        self.assertIsInstance(h, str)
+        self.assertTrue(len(h) == 32)
+
+class TestHashUnique(unittest.TestCase):
+    @given(integers())
+    def test_hashing_unique(self, e):
+        h1 = flywrench.Cache().make_hash(e)
+        h2 = flywrench.Cache().make_hash(e+1)
+        self.assertFalse(h1 == h2)
+
+
+
 
 class TestBasic(unittest.TestCase):
     def test_basic(self):
 
         class Example(flywrench.Flywrench):
             cache = flywrench.Cache()
-            def __init__(self,i):
+            def __init__(self, i):
                 self.test = i
 
         example = Example(5)
-        self.assertEqual(example.test,5)
+        self.assertEqual(example.test, 5)
 
         #print(Example.cache.d)
 
@@ -21,10 +61,10 @@ class TestModify(unittest.TestCase):
 
         class Example2(flywrench.Flywrench):
             cache = flywrench.Cache()
-            def __init__(self,i):
+            def __init__(self, i):
                 self.test = i
 
-            def testMethod(self):
+            def test_method(self):
                 return self.test + 5
 
         example = [Example2(42) for i in range(100)]
@@ -35,8 +75,8 @@ class TestModify(unittest.TestCase):
 
         #print(dir(example))
 
-        self.assertEqual(example.test,42)
-        self.assertEqual(example.testMethod(),47)
+        self.assertEqual(example.test, 42)
+        self.assertEqual(example.test_method(), 47)
 
 class TestInvalidAttribute(unittest.TestCase):
     def test_invalid(self):

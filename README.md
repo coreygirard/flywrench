@@ -21,14 +21,14 @@ from flywrench import Flywrench
 ```python
 # instead of this
 class SomeClass(object):
-    def __init__(self,args):
+    def __init__(self, args):
         # more magic
 ```
 
 ```python
 # do this
 class SomeClass(Flywrench):
-    def __init__(self,args):
+    def __init__(self, args):
         # more magic
 ```
 
@@ -42,7 +42,5 @@ class SomeClass(Flywrench):
 
 ## To Do
 
-- [ ] Move 
+- [ ] Move
 - [ ] Perhaps garbage collection. Keep track of how many links there are to a given object in cache, and when the number of links hits zero, delete it
-
-
