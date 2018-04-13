@@ -45,7 +45,6 @@ class TestHashUnique(unittest.TestCase):
 
 class TestBasic(unittest.TestCase):
     def test_basic(self):
-
         class Example(flywrench.Flywrench):
             cache = flywrench.Cache()
             def __init__(self, i):
@@ -54,11 +53,8 @@ class TestBasic(unittest.TestCase):
         example = Example(5)
         self.assertEqual(example.test, 5)
 
-        #print(Example.cache.d)
-
 class TestModify(unittest.TestCase):
     def test_modify(self):
-
         class Example2(flywrench.Flywrench):
             cache = flywrench.Cache()
             def __init__(self, i):
@@ -69,11 +65,8 @@ class TestModify(unittest.TestCase):
 
         example = [Example2(42) for i in range(100)]
         example[-1].test = 7
-        #print(Example2.cache.d)
 
         example = Example2(42)
-
-        #print(dir(example))
 
         self.assertEqual(example.test, 42)
         self.assertEqual(example.test_method(), 47)
@@ -83,7 +76,7 @@ class TestInvalidAttribute(unittest.TestCase):
 
         class Example3(flywrench.Flywrench):
             cache = flywrench.Cache()
-            def __init__(self,i):
+            def __init__(self, i):
                 self.test = i
 
         example = Example3(2)

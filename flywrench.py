@@ -10,6 +10,7 @@ class Cache(object):
         >>> cache.blacklist
         ['aaa', 'bbb', 'ccc']
         '''
+
         self.d = {}
         if blacklist:
             self.blacklist = blacklist
