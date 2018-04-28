@@ -38,7 +38,7 @@ class SomeClass(Flywrench):
 
 ## Advanced
 
-[tricks and tips](advanced.md)
+[tricks and tips](docs/advanced.md)
 
 ## To Do
 
