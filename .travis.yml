@@ -5,7 +5,7 @@ python:
 
 script: pipenv run coverage run python setup.py test
 before_install:
-  pip install codecov coverage
+  pip install codecov coverage;
   pip install pipenv
 after_success:
   codecov --token=
