@@ -4,4 +4,4 @@ init:
 	pipenv install --dev
 
 test:
-	pipenv run coverage run python setup.py test
+	pipenv run coverage run setup.py test
