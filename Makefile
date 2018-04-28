@@ -1,6 +1,6 @@
 init:
-	pip install codecov coverage
-    pip install pipenv
+	pip install codecov coverage;
+    pip install pipenv;
     pipenv install --dev
 
 test:
