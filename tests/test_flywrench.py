@@ -27,7 +27,7 @@ class TestHashing(unittest.TestCase):
 
     @given(lists(one_of(floats(),
                         integers(),
-                        text())))
+                        text()), max_size=10))
     def test_hashing_lists(self, e):
         h = flywrench.Cache().make_hash(e)
         self.assertIsInstance(h, str)
