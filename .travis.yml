@@ -1,0 +1,11 @@
+language: python
+python:
+  - "2.7"
+  - "3.6"
+
+script: pipenv run coverage run python setup.py test
+before_install:
+  pip install codecov coverage
+  pip install pipenv
+after_success:
+  codecov --token=

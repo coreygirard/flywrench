@@ -25,10 +25,10 @@ pprint(SomeClass.cache.d)
 pprint(OtherClass.cache.d)
 ```
 ```
-{'785ee38e51369f64df4f68af923b3456': 5, 
+{'785ee38e51369f64df4f68af923b3456': 5,
  'a8216e26a2093b48a0b7c57159313c8e': 4}
 
-{'785ee38e51369f64df4f68af923b3456': 5, 
+{'785ee38e51369f64df4f68af923b3456': 5,
  'a8216e26a2093b48a0b7c57159313c8e': 4}
 ```
 
@@ -146,7 +146,7 @@ There you go. It's all 'upgraded'. And it's probably a bit faster, too! Let's ta
 
 ```python
 class SomeClass(Flywrench):
-    def __init__(self,i):
+    def __init__(self, i):
         self.test = i
 
 a = SomeClass(1)
@@ -160,8 +160,8 @@ print(b.test)
 print(c.test)
 ```
 ```
-{-1: 1, 
-  2: [2, 3], 
+{-1: 1,
+  2: [2, 3],
   3: (4, 5, 6)}
 
 1
@@ -172,7 +172,7 @@ print(c.test)
 So far so good!
 
 ```python
-d = SomeClass((7,8))
+d = SomeClass((7, 8))
 print(c.test)
 print(d.test)
 ```
@@ -195,12 +195,12 @@ def hash2(obj):
 
 class SomeClass(Flywrench):
     cache = Cache(hash_algorithm=hash1)
-    def __init__(self,i):
+    def __init__(self, i):
         self.test = i
 
 class OtherClass(Flywrench):
     cache = Cache(hash_algorithm=hash2)
-    def __init__(self,i):
+    def __init__(self, i):
         self.test = i
 
 temp = [SomeClass(1),

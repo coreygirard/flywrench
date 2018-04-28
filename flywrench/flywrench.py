@@ -18,7 +18,7 @@ class Cache(object):
             self.blacklist = []
 
         if hash_algorithm:
-            self.makeHash = hash_algorithm
+            self.make_hash = hash_algorithm
 
     def make_hash(self, obj):
         '''

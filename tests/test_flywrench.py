@@ -96,6 +96,20 @@ class TestInvalidAttribute(unittest.TestCase):
         >>> Cache().makeHash((3,4,5))
         'fa693414f5932aaccbd492381185fe50'
         '''
+
+class TestCustomAlgorithm(unittest.TestCase):
+    def test_custom_algorithm(self):
+        class Example(flywrench.Flywrench):
+            cache = flywrench.Cache(hash_algorithm=lambda x: 42)
+
+        example = Example()
+        example.test = 5
+        self.assertEqual(example.test, 5)
+
+        example.other = 6
+        self.assertEqual(example.test, 6)
+
+
 # test calling methods
 
 
