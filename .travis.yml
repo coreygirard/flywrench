@@ -3,7 +3,9 @@ python:
   - "2.7"
   - "3.6"
 
-install: "make"
-script: make test
+script: pipenv run coverage run flywrench/test_flywrench.py
+before_install:
+  pip install pipenv;
+  pipenv install
 after_success:
   codecov --token=
