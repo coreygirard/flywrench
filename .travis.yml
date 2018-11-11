@@ -5,7 +5,7 @@ python:
   - "3.6"
   - "3.7-dev"
 
-script: pipenv run coverage run flywrench/test_flywrench.py
+script: pipenv run coverage run tests/test_flywrench.py
 install:
   pip install pipenv;
   pipenv install

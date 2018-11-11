@@ -1,8 +1,8 @@
-import flywrench
-
 import pytest
 from hypothesis import given
-from hypothesis.strategies import integers, floats, one_of, text, lists
+from hypothesis.strategies import floats, integers, lists, one_of, text
+
+from src import flywrench
 
 
 @given(floats())
