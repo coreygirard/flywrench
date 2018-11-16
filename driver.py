@@ -1,3 +1,4 @@
+"""
 from pprint import pprint
 from flywrench import Flywrench, Cache
 
@@ -31,3 +32,4 @@ temp = [SomeClass([1]),
 
 pprint(SomeClass.cache.d)
 pprint(OtherClass.cache.d)
+"""
