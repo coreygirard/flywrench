@@ -1,5 +1,8 @@
 # flywrench
 
+[![Build Status](https://travis-ci.org/coreygirard/flywrench.svg?branch=master)](https://travis-ci.org/coreygirard/flywrench) <br>
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black) <br><br>
+
 An ultralight drop-in module implementing the [flyweight](https://en.wikipedia.org/wiki/Flyweight_pattern) [design](https://refactoring.guru/design-patterns/flyweight) [pattern](http://w3sdesign.com/?gr=s06&ugr=proble#gf)
 
 ## Getting started
@@ -32,7 +35,7 @@ class SomeClass(Flywrench):
         # more magic
 ```
 
-- Step 4: *there is no Step 4*
+- Step 4: _there is no Step 4_
 
 **ENJOY!**
 
