@@ -9,6 +9,7 @@ codecov = "*"
 coverage = "*"
 pytest = "*"
 setuptools = "*"
+zipp = "*"
 
 [dev-packages]
 
